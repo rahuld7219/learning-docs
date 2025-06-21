@@ -727,6 +727,11 @@ With a binary search tree, operations like searching, adding, and removing can b
 _**Trivia to know: an inorder DFS traversal prioritizing left before right on a BST will handle the nodes in sorted order.**_
 https://leetcode.com/problems/validate-binary-search-tree/
 
+# Graphs
+A graph is any collection of nodes(Vertices) and connections between those nodes(Edges).
+A binary tree is a graph, it just has a lot of restrictions on it. The most prominent ones are that every node has at most one parent and at most two children. When we lift the restrictions, graphs can take many more forms. Graphs are part of our everyday lives. We can model literally anything as a graph. Some examples of practical applications would be social networks like Facebook, Twitter, Instagram, and TikTok, the roads in cities, circuit boards, internet network traffic, crypto blockchains, models in biology, and so much more.
+
+## Graph terminology
 
 
 # COMPLEXITY OF SOME common METHODS IN JAVA
