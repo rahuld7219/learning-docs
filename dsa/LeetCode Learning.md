@@ -719,10 +719,13 @@ public void printAllNodes(TreeNode root) {
 ```
 
 
+## Binary Search Trees
+In BST, for each node, all values in its left subtree are less than the value in the node, and all values in its right subtree are greater than the value in the node.
+This property also implies that values in a BST must be unique.
+With a binary search tree, operations like searching, adding, and removing can be done in O(logn) time on average, where n is the number of nodes in the tree, using binary search. A tree that had no right children and was just a straight line (basically a linked list), the time complexity would be O(n).
 
-
-
-
+_**Trivia to know: an inorder DFS traversal prioritizing left before right on a BST will handle the nodes in sorted order.**_
+https://leetcode.com/problems/validate-binary-search-tree/
 
 
 
