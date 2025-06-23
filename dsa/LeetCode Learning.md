@@ -753,6 +753,14 @@ _Binary trees by definition cannot have a cycle._
 
 ## How are graphs given in algorithm problems?
 
+In linked list problems, the **head** of the linked list is given. In binary tree problems, the **root** of the tree is given. In graph problems, only information about a graph is given. There are multiple common formats that this information can come in. We will take a look at a few.
+
+
+> An important thing to understand is that with linked lists and binary trees, you are literally given objects in memory that contain data and pointers. With graphs, the graph doesn't literally exist in memory.
+
+In fact, only the "idea" of the graph exists. The input will give you some information about it, and it's up to you to figure out how to represent and traverse the graph with code.
+
+Many times, the nodes of a graph will be labeled from 0 to n - 1. The problem statement may or may not explicitly state the input is a graph. Sometimes there might be a story, and you need to determine that the input is a graph. For example, "there are n cities labeled from 0 to n - 1". You can treat each city as a node and each city has a unique label.
 
 # COMPLEXITY OF SOME common METHODS IN JAVA
 
