@@ -732,6 +732,26 @@ A graph is any collection of nodes(Vertices) and connections between those nodes
 A binary tree is a graph, it just has a lot of restrictions on it. The most prominent ones are that every node has at most one parent and at most two children. When we lift the restrictions, graphs can take many more forms. Graphs are part of our everyday lives. We can model literally anything as a graph. Some examples of practical applications would be social networks like Facebook, Twitter, Instagram, and TikTok, the roads in cities, circuit boards, internet network traffic, crypto blockchains, models in biology, and so much more.
 
 ## Graph terminology
+**directed** - can only traverse in one direction.
+**undirected** - can traverse in both directions
+
+_In binary trees, the edges were directed. Binary trees are directed graphs. You can't access a node's parent, only its children._ 
+
+**connected component** - A connected component of a graph is a group of nodes that are connected by edges.
+
+_In binary trees, there must only be one connected component (all nodes are reachable from the root)._
+
+**indegree** - The number of edges that can be used to reach the node.
+**outdegree** - The number of edges that can be used to leave the node.
+**neighbors** - Nodes that are connected by an edge.
+
+_In binary trees, all nodes except the root had an indegree of 1 (due to their parent). All nodes have an outdegree of 0, 1, or 2. An outdegree of 0 means that it is a leaf. Specific to trees, we used the parent/child terms instead of "neighbors"._
+
+**Cyclic** means that the graph has a cycle, **acyclic** means that it doesn't. Cycle means when you have a path in the edges that leads to visiting the same nodes infinitely.
+
+_Binary trees by definition cannot have a cycle._
+
+## How are graphs given in algorithm problems?
 
 
 # COMPLEXITY OF SOME common METHODS IN JAVA
