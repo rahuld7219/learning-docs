@@ -762,6 +762,81 @@ In fact, only the "idea" of the graph exists. The input will give you some infor
 
 Many times, the nodes of a graph will be labeled from 0 to n - 1. The problem statement may or may not explicitly state the input is a graph. Sometimes there might be a story, and you need to determine that the input is a graph. For example, "there are n cities labeled from 0 to n - 1". You can treat each city as a node and each city has a unique label.
 
+With binary trees, we had left or right as neighbours, but with graphs, we can have any neighbours. So, before we start our traversal with the graph, we usually need to do some work to make sure that for any given node, we can immediately access all the neighbors of said node.
+
+#### First input format: array of edges
+
+<img width="1534" height="855" alt="image" src="https://github.com/user-attachments/assets/7658641f-40f3-4845-80b0-3ddfed20b922" />
+This example graph can be represented by an array of directed edges: edges = [[0, 1], [1, 2], [2, 0], [2, 3]]
+Notice that the graph in the image does not exist in memory. It exists only as an idea derived from the array [[0, 1], [1, 2], [2, 0], [2, 3]].
+
+The problem may have a story for these edges - using the cities example, the story would be something like "[x, y] means there is a highway connecting city x and city y". The edges could be directed or undirected. This information will be in the problem description.
+So, why can't we immediately start traversal? **At every node, we would need to iterate over the entire input to find the neighbors**
+
+ We want a data structure where we can give a node as an argument and return a list of neighbors. The easiest way to accomplish this is using a hash map.
+ After building this hash map, we can do graph[0] and immediately have all the neighbors of node 0.
+
+> A good analogy for this: imagine you're on Facebook and you want to see a list of all your friends. However, the Facebook engineers decided to keep their graph in the form of an array of edges! You would need to look at every single connection in the world (which is likely in the hundreds of billions if not trillions) and find the connections that involve you. However, if the graph is built beforehand, you can easily just click the friends tab on your profile to see only your friends.
+
+```
+public Map<Integer, List<Integer>> buildGraph(int[][] edges) {
+    Map<Integer, List<Integer>> graph = new HashMap<>();
+    for (int[] edge: edges) {
+        int x = edge[0], y = edge[1];
+        if (!graph.containsKey(x)) {
+            graph.put(x, new ArrayList<>());
+        }
+        graph.get(x).add(y);
+
+        // if (!graph.containsKey(y)) {
+        //     graph.put(y, new ArrayList<>());
+        // }
+        // graph.get(y).add(x);
+
+        // uncomment the above lines if the graph is undirected
+    }
+
+    return graph;
+}
+```
+
+#### Second input format: adjacency list
+<img width="1534" height="855" alt="image" src="https://github.com/user-attachments/assets/7658641f-40f3-4845-80b0-3ddfed20b922" />
+The graph in the image above can be represented by the adjacency list graph = [[1], [2], [0, 3], []].
+graph[i] will be a list of all the outgoing edges from the i<sup>th</sup> node.
+with this input, we can already access all the neighbors of any given node. We don't need to do any pre-processing! This makes an adjacency list the most convenient format.
+
+#### Third input format: adjacency matrix
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dd5373e2-f991-4663-86d5-b71fc7841f10" />
+
+Given a 2D matrix of size n x n, if graph[i][j] == 1, that means there is an outgoing edge from node i to node j.
+
+When given this format, you have two options:
+- During the traversal, at any given node you can iterate over graph[node], and if graph[node][i] == 1, then you know that node i is a neighbor.
+- Alternatively, you can pre-process the graph, build a hash map, If graph[i][j] == 1, then put j in the list associated with graph[i]. This way, when performing the traversal, you will not need to iterate n times at every node to find the neighbors. This is especially useful when nodes have only a few neighbors and n is large.
+> For a sparse graph adjacency list is better, for a dense graph adajacency matrix is better.
+
+Both of these approaches will have a time complexity of O(n<sup>2</sup>)
+
+#### Last input format: matrix
+The last format we'll talk about is more subtle but very common.
+The input will be a 2D matrix and the problem will describe a story. Each square will represent something, and the squares will be connected in some way. For example, "Each square of the matrix is a village. Villages trade with their neighboring villages, which are the villages directly above, to the left, to the right, or below them."
+
+In this case, each square (row, col) of the matrix is a node, and the neighbors are (row - 1, col), (row, col - 1), (row + 1, col), (row, col + 1) (if in bounds).
+
+Unlike other input formats, the nodes in these graphs are not numbered 0 until n. Instead, each element in the matrix represents a node. The edges are determined by the problem description, not the input.
+
+
+### Code differences between graphs and trees
+
+-  A binary tree has a root node to start traversal from, a graph does not always have an obvious "start" point, this will depend on the problem and what you are trying to solve.
+- When traversing a tree, we refer to node.left and node.right at each node. When traversing a graph, we will need to use a for loop to iterate over the neighbors of the current node, since a node could have any number of neighbors.
+- To prevent cycles and unnecessarily visiting a node more than once, we should use a set **seen**.
+> This wasn't necessary with trees because we started at the root and the edges only moved "down" - once we left a node, there was no way to get back to it.
+
+> We can use an array for **seen** instead of a set, if the range of states is known (which it usually is, because most graph problems have the nodes numbered from 0 to n - 1).
+
+
 # COMPLEXITY OF SOME common METHODS IN JAVA
 
 **str.toCharArray()** \= \> time: O(n), space: O(n)  
