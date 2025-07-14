@@ -836,6 +836,12 @@ Unlike other input formats, the nodes in these graphs are not numbered 0 until n
 
 > We can use an array for **seen** instead of a set, if the range of states is known (which it usually is, because most graph problems have the nodes numbered from 0 to n - 1).
 
+> Unlike trees, in graphs, the nodes aren't exactly given to us. We are simply told that there exists some nodes numbered from 0 to n - 1, and we are given information regarding the edges. Thus, we treat the integers from [0, n - 1] as the nodes. This is why our dfs(node) function takes an integer as an argument. With trees, we passed the node object as an argument. Here, we pass the integer label of the node. This is a concept that you will need to master - with graphs, the graph only "exists" as an idea. It is up to you to implement a method of representing the nodes and edges and traversing over them.
+
+> With Adjacency List, the time complexity for DFS on graphs is usually O(n+e), where n is the number of nodes and e is the number of edges. In the worst-case scenario where every node is connected with every other node, e=n<sup>2</sup>.
+> With Adajacency Matrix, the time complexity for DFS on graphs is always O(n<sup>2</sup>).
+> Space complexity = O(n), for the recursion call stack O(n) (in the worst case) as well as for **seen**/**visited**. If we build Adajacency list from given adjacency matrix then space complexity is O(n + e).
+
 
 # COMPLEXITY OF SOME common METHODS IN JAVA
 
