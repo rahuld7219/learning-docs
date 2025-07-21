@@ -842,6 +842,18 @@ Unlike other input formats, the nodes in these graphs are not numbered 0 until n
 > With Adajacency Matrix, the time complexity for DFS on graphs is always O(n<sup>2</sup>).
 > Space complexity = O(n), for the recursion call stack O(n) (in the worst case) as well as for **seen**/**visited**. If we build Adajacency list from given adjacency matrix then space complexity is O(n + e).
 
+## Graphs - DFS
+
+## Graphs - BFS
+Like with trees, in most graph problems, it doesn't really matter if you use DFS or BFS, and there are rarely scenarios where DFS performs better than BFS - people just choose DFS because it's faster/cleaner to implement, especially recursively.
+
+But, there are some problems where using BFS is clearly better than using DFS. In trees, this was the case when we were concerned with tree levels. In graphs, it is mostly the case when you are asked to find the **shortest path**.
+BFS on a graph always visits nodes according to their distance from the starting point.
+
+> The above statement was always the case on binary trees, even if you did a DFS, because there is only one possible path to any node from the root. In a graph, there could be many paths from a given starting point to any other node.
+
+> We implemented DFS primarily with **recursion**, which uses a stack under the hood. To implement BFS, we will use a **queue** (**iteratively**) instead.
+> The steps taken to implement BFS are very similar to DFS. At each node, do some logic, then iterate over the neighbors, check if the neighbor is in seen, and if it isn't, add it to **seen and the queue**. The main difference is that we are using a queue instead of a stack.
 
 # COMPLEXITY OF SOME common METHODS IN JAVA
 
