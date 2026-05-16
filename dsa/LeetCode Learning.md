@@ -717,7 +717,7 @@ public void printAllNodes(TreeNode root) {
     }
 }
 ```
-
+With an efficient queue, the dequeue and enqueue operations are O(1), which means that the time complexity of BFS is the same as DFS. Again, the main idea is that we visit each node only once, so the time complexity is O(n⋅k) where n is the total number of nodes, and k is the amount of work we do at each node, usually O(1).
 
 ## Binary Search Trees
 In BST, for each node, all values in its left subtree are less than the value in the node, and all values in its right subtree are greater than the value in the node.
