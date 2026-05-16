@@ -530,7 +530,7 @@ A graph is any collection of nodes and their pointers to other nodes. In fact, l
 Like a linked list, there are multiple types of trees. In this course, we will be focusing on binary trees. 
 The start of a linked list was called the head. The start of a binary tree is called the root.
 
-In a tree, a node cannot have more than one parent.
+In a tree, a node cannot have more than one parent. (This is the main difference between a tree and **DAG**(Directed Acyclic Graph), DAG can have more than 1 parent)i.e., in a tree there is **exactly** one path between any 2 nodes while DAG can have multiple paths. All trees are DAGs but vice versa is not true.
 A binary tree is a collection of nodes. Every node has between 0 to 2 children, and every node except the root has exactly one parent.
 
 Trees (not just binary trees) are implemented all around us in real life. Some examples:
