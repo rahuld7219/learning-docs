@@ -685,7 +685,7 @@ While DFS was implemented using a stack (recursion uses a stack under the hood),
 ### When to use BFS vs DFS?
 Mostly, it doesn't matter what we use, because every "visit" to a node will store sufficient information irrespective of visit order.
 However, implementing DFS is usually quicker because it requires less code, and is easier to implement if using recursion, so for problems where BFS/DFS doesn't matter, most people end up using DFS.
-On the flip side, there are quite a few problems where using BFS makes way more sense algorithmically than using DFS. Usually, this applies to any problem where we want to handle the nodes according to their level.
+On the flip side, there are quite a few problems where using **BFS makes way more sense** algorithmically than using DFS. Usually, this applies to any problem where we want **to handle/analyse the nodes according to their level**.
 
 In an interview, you may be asked some trivia regarding BFS vs DFS, such as their drawbacks. The main disadvantage of DFS is that you could end up wasting a lot of time looking for a value. Let's say that you had a huge tree, and you were looking for a value that is stored in the root's right child. If you do DFS prioritizing left before right, then you will search the entire left subtree, which could be hundreds of thousands if not millions of operations. Meanwhile, the node is literally one operation away from the root. The main disadvantage of BFS is that if the node you're searching for is near the bottom, then you will waste a lot of time searching through all the levels to reach the bottom.
 
@@ -721,6 +721,7 @@ public void printAllNodes(TreeNode root) {
     }
 }
 ```
+We store the number of nodes in the current level **nodesInCurrentLevel** before iterating to **make sure the for loop doesn't iterate over any other nodes**.<br>
 With an efficient queue, the dequeue and enqueue operations are O(1), which means that the time complexity of BFS is the same as DFS. Again, the main idea is that we visit each node only once, so the time complexity is O(n⋅k) where n is the total number of nodes, and k is the amount of work we do at each node, usually O(1).
 
 ## Binary Search Trees
