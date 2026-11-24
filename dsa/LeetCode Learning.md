@@ -519,7 +519,7 @@ for num in nums:
 
     stack.push(num)
 
-# Binary Trees
+# Trees & Graphs
 
 ## Nodes and graphs
 A node is an abstract data type with two things. First, a node stores data. This data can be whatever you want - an integer, a boolean, a hash map, your own custom objects, or all of the above. Second, a node stores pointers to other nodes.
@@ -548,7 +548,7 @@ If we modeled the company as a tree, then each person is a node, and an edge exi
 The important characteristics of the company that makes it a tree are that each person only has 1 manager (parent), and the entire tree is connected (if you start at anyone and continuously trace their managers, you will always end up at the CEO).
 
 In most tree questions, the root of the tree will be given as the input, just like how in linked lists, the head was given as the input.
-The depth of a node is how far it is from the root node. The root has a depth of 0. Every child has a depth of parentsDepth + 1
+The depth of a node is how far it is from the root node. **The root has a depth of 0. Every child has a depth of parentsDepth + 1**
 
 A subtree of a tree is a node and all its descendants. Trees are recursive - you can treat a subtree as if it was its own tree with the chosen node being the root.
 This is the most fundamental idea for solving tree problems - you can take any given node and treat it as its own tree, which allows you to solve problems in a recursive manner.
