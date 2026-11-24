@@ -674,9 +674,13 @@ https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/description/
 
 ## Binary trees - BFS
-A "complete" binary tree is one where every level (except possibly the last) is full, and all the nodes in the last level are as left as possible.
-In BFS, we traverse all nodes at a given depth before moving on to the next depth.
-BFS is implemented iteratively with a queue. You can implement BFS with recursion, but it wouldn't make sense as it's a lot more difficult without any benefit.
+A **"full"** binary tree (sometimes referred to as a proper, plane, or strict binary tree) is a tree in which every node has either 0 or 2 children.<br>
+A **"complete"** binary tree is one where every level (except possibly the last) is full, and all the nodes in the last level are as left as possible. A complete binary tree can be efficiently represented using an array.<br>
+A **"perfect"** binary tree is in which all interior nodes have two children and all leaves have the same depth/level. A perfect binary tree is a **full** binary tree. A perfect tree is always **complete** but a complete tree is not always perfect.<br><br>
+In BFS, we traverse all nodes at a given depth before moving on to the next depth.<br>
+If we performed **DFS** on a large tree, the **depth** of the nodes you would traverse may look something **like 0, 1, 2, 3, 4, 5, 6, ....**<br>
+If we performed **BFS** on a large complete binary tree, the **depth** of the nodes you would traverse would look **like 0, 1, 1, 2, 2, 2, 2, 3, 3, ....**<br><br>
+While DFS was implemented using a stack (recursion uses a stack under the hood), BFS is implemented **iteratively with a queue.** You can implement BFS with recursion, but it wouldn't make sense as it's a lot more difficult without any benefit.
 
 ### When to use BFS vs DFS?
 Mostly, it doesn't matter what we use, because every "visit" to a node will store sufficient information irrespective of visit order.
