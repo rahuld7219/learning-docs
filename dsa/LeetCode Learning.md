@@ -836,7 +836,7 @@ Unlike other input formats, the nodes in these graphs are not numbered 0 until n
 
 -  A binary tree has a root node to start traversal from, a graph does not always have an obvious "start" point, this will depend on the problem and what you are trying to solve.
 - When traversing a tree, we refer to node.left and node.right at each node. When traversing a graph, we will need to use a for loop to iterate over the neighbors of the current node, since a node could have any number of neighbors.
-- To prevent cycles and unnecessarily visiting a node more than once, we should use a set **seen**.
+- To prevent cycles and unnecessarily visiting a node more than once, we should use a set **seen**. Adding and checking for existence in a set takes constant time; O(1).
 > This wasn't necessary with trees because we started at the root and the edges only moved "down" - once we left a node, there was no way to get back to it.
 
 > We can use an array for **seen** instead of a set, if the range of states is known (which it usually is, because most graph problems have the nodes numbered from 0 to n - 1).
@@ -848,14 +848,14 @@ Unlike other input formats, the nodes in these graphs are not numbered 0 until n
 > Space complexity = O(n), for the recursion call stack O(n) (in the worst case) as well as for **seen**/**visited**. If we build Adajacency list from given adjacency matrix then space complexity is O(n + e).
 
 ## Graphs - DFS
-
+Implementation of DFS for graphs is similar to implementation for trees. Doing it recursively follows the same format: check for the base case, recursively call on all neighbors, do some logic to calculate the answer, and return the answer. You can also do it iteratively using a stack.
 ## Graphs - BFS
 Like with trees, in most graph problems, it doesn't really matter if you use DFS or BFS, and there are rarely scenarios where DFS performs better than BFS - people just choose DFS because it's faster/cleaner to implement, especially recursively.
 
 But, there are some problems where using BFS is clearly better than using DFS. In trees, this was the case when we were concerned with tree levels. In graphs, it is mostly the case when you are asked to find the **shortest path**.
 BFS on a graph always visits nodes according to their distance from the starting point.
 
-> The above statement was always the case on binary trees, even if you did a DFS, because there is only one possible path to any node from the root. In a graph, there could be many paths from a given starting point to any other node.
+> The above statement was always the case on binary **trees**, even if you did a DFS, because there is **only one possible path** to any node from the root. In a graph, there could be many paths from a given starting point to any other node.
 
 > We implemented DFS primarily with **recursion**, which uses a stack under the hood. To implement BFS, we will use a **queue** (**iteratively**) instead.
 > The steps taken to implement BFS are very similar to DFS. At each node, do some logic, then iterate over the neighbors, check if the neighbor is in seen, and if it isn't, add it to **seen and the queue**. The main difference is that we are using a queue instead of a stack.
